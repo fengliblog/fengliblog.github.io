@@ -1,90 +1,58 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>缓冲提示</title>
-    <script>
-        // 延迟加载函数，等待5秒后执行跳转操作
-        function redirectAfter5Seconds() {
-            setTimeout(function() {
-                // 5秒后跳转到 fengliblog.github.io/team
-                window.location.href = "https://fengliblog.github.io/team";
-            }, 5000);
-        }
-
-        // 页面加载完毕后显示弹出提示，并开始倒计时
-        window.onload = function() {
-            var modal = document.getElementById("myModal");
-            var span = document.getElementsByClassName("close")[0];
-
-            modal.style.display = "block";
-
-            // 监听关闭按钮事件
-            span.onclick = function() {
-                modal.style.display = "none";
-                redirectAfter5Seconds(); // 关闭提示后开始倒计时跳转
-            }
-
-            // 设置定时器关闭弹出提示
-            setTimeout(function() {
-                modal.style.display = "none";
-                redirectAfter5Seconds(); // 提示自动关闭后开始倒计时跳转
-            }, 5000);
-        };
-    </script>
-    <style>
-        /* 弹出提示的样式 */
-        #myModal {
-            display: none; /* 默认隐藏 */
-            position: fixed; /* 固定位置 */
-            z-index: 1; /* 位于顶层 */
-            left: 0;
-            top: 0;
-            width: 100%; /* 宽度为全屏 */
-            height: 100%; /* 高度为全屏 */
-            overflow: auto; /* 如果需要滚动条，则启用 */
-            background-color: rgb(0,0,0); /* 背景色 */
-            background-color: rgba(0,0,0,0.4); /* 背景色，带有透明度 */
-        }
-
-        /* 弹出内容框的样式 */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; /* 位于页面中心 */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* 宽度 */
-        }
-
-        /* 关闭按钮的样式 */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>提示界面</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+  }
+  .container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .message {
+    margin-bottom: 20px;
+  }
+  .countdown {
+    color: #888;
+  }
+</style>
 </head>
 <body>
-
-<!-- 弹出提示的结构 -->
-<div id="myModal" class="modal">
-
-  <!-- 弹出内容 -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>网站检测到延迟过高，请耐心等待。如出现加载错误为正常现象，此现象为缓存未加载；当加载缓慢时，请勿退出，此为加载缓存阶段，为正常现象，等待即可。</p>
+<div class="container">
+  <div class="message">
+    网站检测到延迟过高，请耐心等待。如出现加载错误为正常现象，此现象为缓存未加载；当加载缓慢时，请勿退出，此为加载缓存阶段，为正常现象，等待即可。
   </div>
-
+  <div class="countdown">
+    <span id="countdown">5</span> 秒后自动跳转...
+  </div>
 </div>
 
+<script>
+  // 设置倒计时秒数
+  var countdown = 5;
+  
+  // 更新倒计时显示
+  var countdownElement = document.getElementById('countdown');
+  var interval = setInterval(function() {
+    countdown--;
+    countdownElement.textContent = countdown;
+    if (countdown <= 0) {
+      clearInterval(interval);
+      window.location.href = 'https://fengliblog.github.com/team';
+    }
+  }, 1000);
+</script>
 </body>
 </html>

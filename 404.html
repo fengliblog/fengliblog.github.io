@@ -2,30 +2,60 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>:( 加载失败，网址错误</title>
+    <title>404 - 你来到了知识的荒原</title>
     <style>
         body {
-            /* 设置背景颜色为蓝屏 */
-            background-color: #00008B;
-            color: #FFFFFF;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #add8e6, #0000ff); /* 蓝色渐变背景 */
             text-align: center;
-            margin-top: 20%;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
         }
         h1 {
-            font-size: 2em;
-            margin-bottom: 0.5em;
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
         p {
-            font-size: 1.5em;
-            margin-bottom: 1em;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <h1>加载失败，网址错误</h1>
-    <p>抱歉，您输入的网址似乎有问题。请检查网址是否正确，然后再次尝试。</p>
-    <p>如果您需要帮助，请联系网站管理员。</p>
+    <div class="container">
+        <h1>对不起，页面无法找到！</h1>
+        <p>您似乎访问了一个不存在的页面。</p>
+        <p>如果您确定您的网站输入是正确的，您可以试试点击下方的链接或者是联系管理员。。</p>
+        <a href="https://fengliblog.github.io" class="btn-home">回到官网</a>
+    </div>
+    <footer>
+        &copy; 2024 凤梨Team. All rights reserved.
+    </footer>
 </body>
 </html>

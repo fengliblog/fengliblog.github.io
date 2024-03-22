@@ -12,7 +12,14 @@
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f7f7f7;
+    background: linear-gradient(45deg, #007bff, #0096ff, #00bff3, #00e7ff);
+    background-size: 800% 800%;
+    animation: AnimationName 20s ease infinite;
+  }
+  @keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
   }
   .container {
     text-align: center;
@@ -23,6 +30,7 @@
   }
   .message {
     margin-bottom: 20px;
+    color: #333;
   }
   .countdown {
     color: #888;

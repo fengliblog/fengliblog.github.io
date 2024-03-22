@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>加载动画示例</title>
+    <title>Team WE</title>
     <style>
         body, html {
             margin: 0;
@@ -50,6 +50,8 @@
             width: 100%;
             height: 100%;
             border: none;
+            /* 延迟加载iframe */
+            loading="lazy"
         }
     </style>
 </head>
@@ -58,15 +60,15 @@
         <div class="loading-overlay" id="loadingOverlay">
             <div class="loading-spinner"></div>
             <!-- 加载信息 -->
-            <p id="loadingMessage"></p>
+            <p id="loadingMessage">正在加载地图...</p>
         </div>
-        <iframe class="responsive-iframe" id="embeddedSite" src="fengliteam.github.io" frameborder="0"></iframe>
+        <iframe class="responsive-iframe" id="embeddedSite" src="https://fengliteam.github.io" frameborder="0"></iframe>
     </div>
 
     <script>
         // 定义加载信息数组
         var loadingMessages = [
-            "普通人眼中的世界和mc玩家有何不同？",
+            "普通人眼中的世界和MC玩家有何不同？",
             "你知道吗？苦力怕其实是猪。",
             "BUGJANG！",
             "猿神，气动！",

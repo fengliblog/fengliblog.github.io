@@ -37,7 +37,7 @@
             border-radius: 50%;
             width: 50px;
             height: 50px;
-            animation: spin 1s ease infinite;
+            animation: spin 1.5s ease infinite;
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -57,11 +57,29 @@
     <div class="responsive-iframe-container">
         <div class="loading-overlay" id="loadingOverlay">
             <div class="loading-spinner"></div>
+            <!-- 加载信息 -->
+            <p id="loadingMessage"></p>
         </div>
-        <iframe class="responsive-iframe" id="embeddedSite" src="https://fengliteam.github.io" frameborder="0"></iframe>
+        <iframe class="responsive-iframe" id="embeddedSite" src="fengliteam.github.io" frameborder="0"></iframe>
     </div>
 
     <script>
+        // 定义加载信息数组
+        var loadingMessages = [
+            "普通人眼中的世界和mc玩家有何不同？",
+            "你知道吗？苦力怕其实是猪。",
+            "BUGJANG！",
+            "猿神，气动！",
+            "正在加载地图..."
+        ];
+
+        // 随机选择一条加载信息
+        var randomLoadingMessage = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
+
+        // 将加载信息设置到页面中
+        document.getElementById('loadingMessage').textContent = randomLoadingMessage;
+
+        // 当iframe加载完毕后，隐藏加载动画和消息
         document.getElementById('embeddedSite').addEventListener('load', function() {
             document.getElementById('loadingOverlay').style.display = 'none';
         });

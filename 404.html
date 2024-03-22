@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - 你来到了知识的荒原</title>
     <style>
         body {
@@ -15,6 +16,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column; /* 修改flex方向为垂直 */
         }
         .container {
             background-color: #fff;
@@ -22,6 +24,8 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 600px;
+            width: 100%; /* 确保容器宽度为100%，以适应所有设备 */
+            margin-bottom: 20px; /* 在容器和页脚之间添加一些空间 */
         }
         h1 {
             color: #333;
@@ -41,9 +45,9 @@
             text-decoration: underline;
         }
         footer {
-            margin-top: 20px;
             font-size: 0.8em;
             color: #666;
+            width: 100%; /* 确保页脚宽度为100%，以适应所有设备 */
         }
     </style>
 </head>
@@ -51,7 +55,7 @@
     <div class="container">
         <h1>对不起，页面无法找到！</h1>
         <p>您似乎访问了一个不存在的页面。</p>
-        <p>如果您确定您的网站输入是正确的，您可以试试点击下方的链接或者是联系管理员。。</p>
+        <p>如果您确定您的网站输入是正确的，您可以试试点击下方的链接或者是联系管理员。</p>
         <a href="https://fengliblog.github.io" class="btn-home">回到官网</a>
     </div>
     <footer>

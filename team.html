@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="Zh-cn">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>网站</title>
-  <link rel="stylesheet" href="teamcss.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+    <script>
+        function redirectTo() {
+            window.location.href = "https://fengliteam.github.io";
+        }
+    </script>
 </head>
-<body>
-  <div id="loader"></div>
-  <div id="random-text"></div>
-  <iframe id="content-frame" src="fengliteam.github.io" frameborder="0"></iframe>
-  <script src="teamjs.js"></script>
+<body onload="redirectTo()">
+
 </body>
 </html>

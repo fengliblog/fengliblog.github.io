@@ -1,90 +1,15 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="Zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team WE</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f7f7f7;
-        }
-        .responsive-iframe-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        .loading-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(247, 247, 247, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-        .loading-spinner {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #007bff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1.5s ease infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .responsive-iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            /* 延迟加载iframe */
-            loading="lazy"
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网站</title>
+  <link rel="stylesheet" href="teamcss.css">
 </head>
 <body>
-    <div class="responsive-iframe-container">
-        <div class="loading-overlay" id="loadingOverlay">
-            <div class="loading-spinner"></div>
-            <!-- 加载信息 -->
-            <p id="loadingMessage">正在加载地图...</p>
-        </div>
-        <iframe class="responsive-iframe" id="embeddedSite" src="https://fengliteam.github.io" frameborder="0"></iframe>
-    </div>
-
-    <script>
-        // 定义加载信息数组
-        var loadingMessages = [
-            "普通人眼中的世界和MC玩家有何不同？",
-            "你知道吗？苦力怕其实是猪。",
-            "BUGJANG！",
-            "猿神，气动！",
-            "正在加载地图..."
-        ];
-
-        // 随机选择一条加载信息
-        var randomLoadingMessage = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
-
-        // 将加载信息设置到页面中
-        document.getElementById('loadingMessage').textContent = randomLoadingMessage;
-
-        // 当iframe加载完毕后，隐藏加载动画和消息
-        document.getElementById('embeddedSite').addEventListener('load', function() {
-            document.getElementById('loadingOverlay').style.display = 'none';
-        });
-    </script>
+  <div id="loader"></div>
+  <div id="random-text"></div>
+  <iframe id="content-frame" src="fengliteam.github.io" frameborder="0"></iframe>
+  <script src="teamjs.js"></script>
 </body>
 </html>

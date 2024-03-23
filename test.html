@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设备信息页面</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #007bff, #00c3ff);
+      color: white;
+      padding: 20px;
+    }
+    
+    .info {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    
+    .highlight {
+      font-weight: bold;
+      color: #ffcc00;
+    }
+    
+    .normal {
+      color: green;
+    }
+    
+    .abnormal {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>设备信息页面</h1>
+  
+  <div class="info">
+    <span>系统时间: </span>
+    <span class="highlight" id="system-time"></span>
+  </div>
+  
+  <div class="info">
+    <span>用户名: </span>
+    <span class="highlight" id="username"></span>
+  </div>
+  
+  <div class="info">
+    <span>用户代理: </span>
+    <span class="highlight" id="user-agent"></span>
+  </div>
+  
+  <div class="info">
+    <span>屏幕分辨率: </span>
+    <span class="highlight" id="screen-resolution"></span>
+  </div>
+  
+  <div class="info">
+    <span>IP 地址: </span>
+    <span class="highlight" id="ip-address"></span>
+  </div>
+  
+  <div class="info">
+    <span>Mac 地址: </span>
+    <span class="highlight" id="mac-address"></span>
+  </div>
+  
+  <div class="info">
+    <span>设备类型: </span>
+    <span class="highlight" id="device-type"></span>
+  </div>
+  
+  <div class="info">
+    <span>浏览器内核类型: </span>
+    <span class="highlight" id="browser-engine"></span>
+  </div>
+  
+  <div class="info">
+    <span>网站访问状态: </span>
+    <span class="highlight" id="website-status"></span>
+  </div>
+  
+  <script>
+    function updateSystemTime() {
+      const now = new Date();
+      const timeString = now.toLocaleString();
+      document.getElementById('system-time').textContent = timeString;
+    }
+    
+    function updateUserInfo() {
+      document.getElementById('user-agent').textContent = navigator.userAgent;
+      document.getElementById('screen-resolution').textContent = window.screen.width + 'x' + window.screen.height;
+    }
+    
+    function getIPAddress() {
+      // 这里只是一个示例，实际情况下您可能需要通过服务器获取IP地址
+      const ip = '192.168.1.1'; // 假设这是一个IP地址
+      document.getElementById('ip-address').textContent = ip;
+    }
+         const mac = '00:11:22:33:44:55'; // 假设这是一个MAC地址
+      document.getElementById('mac-address').textContent = mac;
+    }
+    
+    function getDeviceType() {
+      // 这里只是一个示例，实际情况下您可能需要通过服务器获取设备类型
+      const userAgent = navigator.userAgent;
+      const deviceType = /iPhone/i.test(userAgent) ? 'iPhone' : /iPad/i.test(userAgent) ? 'iPad' : /Mac OS X/i.test(userAgent) ? 'Mac' : /Windows/i.test(userAgent) ? 'Windows' : /Android/i.test(userAgent) ? 'Android' : 'Other';
+      document.getElementById('device-type').textContent = deviceType;
+    }
+    
+    function getBrowserEngine() {
+      // 这里只是一个示例，实际情况下您可能需要通过服务器获取浏览器内核类型
+      const browserEngine = /Trident/.test(navigator.userAgent) ? 'IE' : /Edge/.test(navigator.userAgent) ? 'Edge' : /Chrome/.test(navigator.userAgent) ? 'Chrome' : /Firefox/.test(navigator.userAgent) ? 'Firefox' : /Safari/.test(navigator.userAgent) ? 'Safari' : 'Other';
+      document.getElementById('browser-engine').textContent = browserEngine;
+    }
+    
+    function checkWebsiteStatus(url) {
+      return fetch(url)
+        .then(response => {
+          if (response.ok) {
+            return '正常';
+          } else {
+            throw new Error('网站访问异常');
+          }
+        })
+        .catch(error => {
+          return '异常';
+        });
+    }
+    
+    function updateWebsiteStatus() {
+      checkWebsiteStatus('https://www.bilibili.com')
+        .then(status => {
+          document.getElementById('website-status').textContent = status;
+        })
+        .catch(error => {
+          console.error('网站状态检查失败:', error);
+          document.getElementById('website-status').textContent = '异常';
+        });
+    }
+    
+    updateSystemTime();
+    updateUserInfo();
+    getIPAddress();
+    getMacAddress();
+    getDeviceType();
+    getBrowserEngine();
+    updateWebsiteStatus();
+  </script>
+</body>
+</html>
+ 
+    function getMacAddress() {
+      // 这里只是一个示例，实际情况下您可能需要通过服务器获取MAC地址
+ 

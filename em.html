@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMERGENCY NOTICE / MAINTENANCE</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(45deg, #007bff, #ffcc00);
+            background-size: 200% 200%;
+            animation: gradient 5s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .warning-sign {
+            position: absolute;
+            color: #fff;
+            font-size: 72px;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="warning-sign">⚠️</div>
+    <div class="content">
+        <h1>网站维护通知</h1>
+        <p>我们的网站正在进行计划中的维护，可能会给您带来不便。维护工作预计将在几个小时内完成。感谢您的理解与支持。</p>
+        <p>2024</p>
+        <p>技术支持团队</p>
+    </div>
+
+    <script>
+        function createParticle(event) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.width = '5px';
+            particle.style.height = '5px';
+            particle.style.background = 'white';
+            particle.style.top = event.clientY + 'px';
+            particle.style.left = event.clientX + 'px';
+
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.style.opacity = '1';
+                particle.style.transform = 'translate(-50%, -50%) scale(2)';
+                particle.style.transition = 'all 0.5s ease';
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 500);
+            }, 10);
+        }
+
+        document.body.addEventListener('click', function(event) {
+            createParticle(event);
+        });
+    </script>
+</body>
+</html>

@@ -98,11 +98,15 @@
       const ip = '192.168.1.1'; // 假设这是一个IP地址
       document.getElementById('ip-address').textContent = ip;
     }
-         const mac = '00:11:22:33:44:55'; // 假设这是一个MAC地址
+    
+    function getMacAddress() {
+      // 这里只是一个示例，实际情况下您可能需要通过服务器获取MAC地址
+      const mac = '00:11:22:33:44:55'; // 假设这是一个MAC地址
       document.getElementById('mac-address').textContent = mac;
     }
     
     function getDeviceType() {
+      // 这里只是一个示例，实际情况下
       // 这里只是一个示例，实际情况下您可能需要通过服务器获取设备类型
       const userAgent = navigator.userAgent;
       const deviceType = /iPhone/i.test(userAgent) ? 'iPhone' : /iPad/i.test(userAgent) ? 'iPad' : /Mac OS X/i.test(userAgent) ? 'Mac' : /Windows/i.test(userAgent) ? 'Windows' : /Android/i.test(userAgent) ? 'Android' : 'Other';
@@ -140,6 +144,11 @@
         });
     }
     
+    function updateCopyright() {
+      const currentYear = new Date().getFullYear();
+      document.getElementById('copyright-year').textContent = currentYear;
+    }
+    
     updateSystemTime();
     updateUserInfo();
     getIPAddress();
@@ -147,10 +156,7 @@
     getDeviceType();
     getBrowserEngine();
     updateWebsiteStatus();
+    updateCopyright();
   </script>
 </body>
 </html>
- 
-    function getMacAddress() {
-      // 这里只是一个示例，实际情况下您可能需要通过服务器获取MAC地址
- 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的博客</title>
+<style>
+  /* 设置整个页面的基础样式 */
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* 设置背景为渐变蓝色 */
+  body {
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+    background-size: 400% 400%;
+    animation: GradientBackground 15s ease infinite;
+  }
+
+  /* 为背景渐变添加动画效果 */
+  @keyframes GradientBackground {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+  }
+
+  /* 设置标题样式 */
+  .header {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-size: 3em;
+  }
+
+  /* 设置文章区域的样式 */
+  .content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  /* 设置文章的样式 */
+  .content p {
+    text-align: justify;
+    text-indent: 2em;
+    line-height: 1.6;
+  }
+
+  /* 设置版权区域的样式 */
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  /* 响应式设计，适配所有设备 */
+  @media (max-width: 600px) {
+    .header {
+      font-size: 2em;
+    }
+    .content {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- 页面标题 -->
+<div class="header">
+  <h1>我的博客</h1>
+</div>
+
+<!-- 文章内容区域 -->
+<div class="content">
+  <p>这里是文章内容。你可以在这里写任何你想写的内容。这篇文章可以无限扩张，不会出现错位的现象。</p>
+  <!-- 文章内容可以继续添加 -->
+</div>
+  
+<div class="content">
+  <p>这里是文章内容。你可以在这里写任何你想写的内容。这篇文章可以无限扩张，不会出现错位的现象。</p>
+  <!-- 文章内容可以继续添加 -->
+</div>
+
+<!-- 版权提示区域 -->
+<div class="footer">
+  &copy; 2024 我的博客. 版权所有。
+</div>
+
+</body>
+</html>

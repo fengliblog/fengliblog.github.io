@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祭奠页面</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>尊敬的用户，</h1>
+        <p>根据我国相关法律法规规定，每年12月13日为国家公祭日，用以纪念南京大屠杀死难者和所有在日本帝国主义侵华战争期间惨遭杀戮的死难同胞。为了表示对逝者的哀思和缅怀，国家公祭日当天，我们会对本网站进行临时性的禁止访问。</p>
+        <p>禁止访问时间：国家公祭日（12月13日）。</p>
+        <p>在禁止访问期间，我们将关闭网站的所有功能，包括浏览、搜索、下载等。给您带来的不便，敬请谅解。同时，我们也希望大家能够在这个特殊的日子里，以各种形式表达对逝者的哀思，传承中华民族的优秀传统文化。</p>
+        <p>此外，清明节是我国传统的祭祀先祖、扫墓的日子。在这一天，我们鼓励大家以庄重、肃穆的心情缅怀先人。因此，清明节期间，我们会对本网站进行临时性的禁止访问，以表示对逝者的尊重。</p>
+        <p>禁止访问时间：清明节（农历清明当天）。</p>
+        <p>感谢您的理解与支持，祝您生活愉快！</p>
+        <div class="footer">
+            网站运营团队敬上
+        </div>
+    </div>
+
+    <script>
+        function checkDateAndRedirect() {
+            var currentDate = new Date();
+            var day = currentDate.getDate();
+            var month = currentDate.getMonth();
+
+            // 国家公祭日为12月13日
+            if (month === 11 && day === 13) {
+                // 当前是国家公祭日，显示纪念页面
+                return;
+            }
+
+            // 清明节通常在农历清明当天，需要根据农历计算
+            // 由于JavaScript的Date对象不支持农历，这里需要使用其他方法来获取农历日期
+            // 假设我们已经有了获取农历日期的函数 getLunarDate
+            var lunarDate = getLunarDate(currentDate); // 这里需要替换为实际的农历日期
+            if (lunarDate.month === 3 && lunarDate.day === 4) {
+                // 当前是清明节，显示纪念页面
+                return;
+            }
+
+            // 如果不是指定日期，则重定向到正常的404页面
+            window.location.href = "https://fengliblog.github.io/404.html";
+        }
+
+        // 检查日期并执行跳转
+        checkDateAndRedirect();
+    </script>
+</body>
+</html>

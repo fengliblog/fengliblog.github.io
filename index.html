@@ -1,63 +1,120 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>加载界面</title>
+    <title>真理部官网</title>
     <style>
-        /* 简单的加载界面样式 */
         body {
-            margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
-            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
         }
-        .loader {
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+
+        .logo {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        #popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
             text-align: center;
         }
-        .loader p {
-            margin: 10px 0;
-            color: #333;
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="loader">
-        <p>请耐心等待。</p>
-        <p>如出现加载错误为正常现象，此现象为缓存未加载；</p>
-        <p>当加载缓慢时，请勿退出，此为加载缓存阶段，为正常现象，等待即可。</p>
+    <div class="container">
+        <img class="logo" src="https://file.imgcc.cloud/images/2024/08/02/5da0ee360748e37a99eb59171bafab04.th.png" alt="真理部标志">
+        <form id="loginForm">
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">登录</button>
+        </form>
     </div>
-
+    <div id="popup" class="hidden">
+        <p>免责声明：此为网页快照，并不代表我方立场。用户协议详见xingying.us.kg/yhxy，继续则表示接受此协议！</p>
+        <button id="confirmButton">确定</button>
+    </div>
     <script>
-        function isSpecificDate(date, month, day) {
-            var now = new Date();
-            return now.getDate() === day && now.getMonth() === month && now.getFullYear() === date.getFullYear();
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('loginForm');
+            const popup = document.getElementById('popup');
+            const confirmButton = document.getElementById('confirmButton');
 
-        function checkDateAndRedirect() {
-            var currentDate = new Date();
-            var day = currentDate.getDate();
-            var month = currentDate.getMonth();
+            loginForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
 
-            // 清明节通常在4月4日或5日，国家公祭日为12月13日
-            if (isSpecificDate(currentDate, 3, 4) || isSpecificDate(currentDate, 3, 5) || isSpecificDate(currentDate, 11, 13)) {
-                window.location.href = "https://fengliblog.github.io/jrem";
-            } else {
-                // 检查参数控制跳转
-                var shouldRedirectToEM = false; // 这里应该是从某个地方获取的参数
-                var targetURL = shouldRedirectToEM ? "https://fengliblog.github.io/em" : "https://fengliblog.github.io/team";
-                setTimeout(function() {
-                    window.location.href = targetURL;
-                }, 5000); // 5秒后跳转
+                if (username === 'AL-1S' && password === 'als') {
+                    showPopup();
+                } else {
+                    alert('登录失败，请检查您的用户名和密码。');
+                }
+            });
+
+            confirmButton.addEventListener('click', () => {
+                window.location.href = "https://xingying.us.kg/bayx";
+            });
+
+            function showPopup() {
+                popup.classList.remove('hidden');
             }
-        }
-
-        // 检查日期并执行跳转
-        checkDateAndRedirect();
+        });
     </script>
 </body>
 </html>
